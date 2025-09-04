@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="textActionNameColor">@android:color/tertiary_text_light</color>
+    <color name="defaultSymbolInputBackgroundColor">@android:color/background_light</color>
+    <color name="defaultSymbolInputTextColor">@android:color/black</color>
+
+    <color name="chilliPepper">#C11B17</color>
+    <color name="grapeFruit">#DC381F</color>
+
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+</resources>

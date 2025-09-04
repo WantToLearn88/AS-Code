@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical"
+		android:background="#00FB00">
+
+
+
+		<WebView
+			android:id="@+id/webview"
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:layout_weight="1"/>
+
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="40dp"
+			android:background="#ccc"
+			android:gravity="center"
+			android:orientation="horizontal">
+
+			<ImageButton
+				style="@style/img_btn"
+				android:src="@drawable/ic_exit"
+				android:onClick="exit"/>
+
+			<Space style="@style/h_pacer"/>
+
+			<ImageButton
+				style="@style/img_btn"
+				android:src="@drawable/ic_reload"
+				android:onClick="reload"/>
+
+			<Space style="@style/h_pacer"/>
+
+			<ImageButton
+				style="@style/img_btn"
+				android:src="@drawable/ic_bottom_menu"
+				android:onClick="toggleConsoleLog"/>
+
+
+		</LinearLayout>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:id="@+id/console_log_container"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical"
+		android:layout_marginBottom="40dp"
+		android:layout_alignParentBottom="true"
+		android:background="#00FB00"
+		android:visibility="gone">
+
+		<ScrollView
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
+
+			<TextView
+				android:id="@+id/console_log_tv"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textIsSelectable="true"/>
+
+		</ScrollView>
+
+
+	</LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,663 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+<LinearLayout
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="34dp"
+		android:background="#ccc"
+		android:gravity="center"
+		android:orientation="horizontal">
+
+
+		<ImageButton
+			style="@style/img_btn"
+			android:src="@drawable/ic_3bar_menu"
+			android:onClick="toggleLeftDrawer"/>
+
+		<Space style="@style/h_pacer"/>
+
+		<ImageButton
+			style="@style/img_btn"
+			android:src="@drawable/ic_save_options"
+			android:onClick="showSaveOptions"/>
+
+		<Space style="@style/h_pacer"/>
+
+		<TextView
+			android:id="@+id/clock_info_tv"
+			android:layout_width="60dp"
+			android:gravity="center"
+			android:layout_height="match_parent"
+			android:text="11:50"/>
+
+		<Space style="@style/h_pacer"/>
+
+		<TextView
+			android:id="@+id/battery_info_tv"
+			android:layout_width="60dp"
+			android:gravity="center"
+			android:layout_height="match_parent"
+			android:text="60%"/>
+
+		<Space style="@style/h_pacer"/>
+
+		<ImageButton
+			style="@style/img_btn"
+			android:src="@drawable/ic_gradle_build"
+			android:onClick="showBuildOptions"/>
+
+		<Space style="@style/h_pacer"/>
+
+		<ImageButton
+			style="@style/img_btn"
+			android:src="@drawable/ic_3bar_menu"
+			android:onClick="toggleRightDrawer"/>
+
+
+	</LinearLayout>
+
+<RelativeLayout
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:id="@+id/activity_root"
+	>
+
+
+	<LinearLayout
+		android:id="@+id/editor_container"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:background="#ffffff"
+		android:focusable="true"
+		android:focusableInTouchMode="true"
+		android:paddingTop="3dp"
+		android:orientation="horizontal"/>
+
+
+	<LinearLayout
+		android:id="@+id/bottom_menu"
+		android:layout_width="match_parent"
+		android:layout_height="320dp"
+		android:orientation="vertical"
+		android:layout_alignParentBottom="true"
+		android:background="#00FB00"
+		android:visibility="gone">
+
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="40dp"
+			android:background="#ccc"
+			android:gravity="center"
+			android:orientation="horizontal">
+
+
+			<ImageButton
+				style="@style/img_btn"
+				android:src="@drawable/ic_up_arrow"
+				android:onClick="maximizeWebviewHeight"/>
+
+			<Space style="@style/h_pacer"/>
+
+			<ImageButton
+				style="@style/img_btn"
+				android:src="@drawable/ic_down_arrow"
+				android:onClick="normalizeWebviewHeight"/>
+
+			<Space style="@style/h_pacer"/>
+
+			<ImageButton
+				style="@style/img_btn"
+				android:src="@drawable/ic_minimize"
+				android:onClick="closeWebview"/>
+
+			<Space style="@style/h_pacer"/>
+
+			<ImageButton
+				style="@style/img_btn"
+				android:src="@drawable/ic_bottom_menu"
+				android:onClick="toggleConsoleLog"/>
+
+			<Space style="@style/h_pacer"/>
+
+			<ImageButton
+				style="@style/img_btn"
+				android:src="@drawable/ic_reload"
+				android:onClick="reload"/>
+
+
+		</LinearLayout>
+
+		<WebView
+			android:id="@+id/webview"
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:layout_weight="1"/>
+
+
+	</LinearLayout>
+	<LinearLayout
+		android:id="@+id/console_log_container"
+		android:layout_width="match_parent"
+		android:layout_height="280dp"
+		android:orientation="vertical"
+		android:layout_alignParentBottom="true"
+		android:background="#00FB00"
+		android:visibility="gone">
+
+		<ScrollView
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
+
+			<TextView
+				android:id="@+id/console_log_tv"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textIsSelectable="true"/>
+
+		</ScrollView>
+
+
+	</LinearLayout>
+
+
+	<View
+		android:layout_height="match_parent"
+		android:layout_width="18dp"
+		android:id="@+id/left_swiper"/>
+
+	<View
+		android:layout_height="match_parent"
+		android:layout_width="18dp"
+		android:layout_alignParentRight="true"
+		android:id="@+id/right_swiper"/>
+
+	<LinearLayout
+		android:layout_height="match_parent"
+		android:layout_width="wrap_content"
+		android:orientation="horizontal"
+		android:visibility="gone"
+		android:id="@+id/left_drawer">
+
+		<LinearLayout
+			android:layout_height="match_parent"
+			android:layout_width="230dp"
+			android:orientation="vertical"
+			android:background="#00FB00">
+
+
+
+			<!--DirPath layout-->
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="40dp"
+				android:background="#00db00"
+				android:orientation="horizontal">
+
+				<TextView
+					android:id="@+id/dir_path_tv"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:text="/"
+					android:gravity="center"/>
+
+			</LinearLayout>
+
+
+			<!--Dir Tab layout-->
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="40dp"
+				android:background="#00db00"
+				android:orientation="horizontal">
+
+
+				<TextView
+					android:id="@+id/dir_name_tv"
+					android:layout_width="0dp"
+					android:layout_weight="1"
+					android:layout_height="match_parent"
+				    android:text="sdcard"
+					android:gravity="center"
+                    android:onClick="nextProject"/>
+
+				<ImageButton
+					style="@style/img_btn"
+					android:src="@drawable/ic_3dot_menu"
+					android:onClick="showProjectOptions"/>
+
+
+			</LinearLayout>
+
+
+			
+			
+			<!--Folder opener layout-->
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="40dip"
+				android:background="#00bB00"
+				android:orientation="horizontal"
+				android:gravity="center">
+
+				<ImageButton
+					style="@style/img_btn"
+					android:src="@drawable/ic_project_home"
+					android:onClick="gotoHomeDir"/>
+
+
+				<Space style="@style/h_pacer"/>
+
+				<ImageButton
+					style="@style/img_btn"
+					android:src="@drawable/ic_editing_dir"
+					android:onClick="gotoEditingDir"/>
+
+			</LinearLayout>
+
+
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="match_parent"
+				android:orientation="horizontal"
+				android:background="#00F3BF">
+
+			    <TextView
+				    android:layout_height="wrap_content"
+				    android:layout_width="0dp"
+					android:layout_weight="1"
+				    android:text="&lt;=Back"
+				    android:id="@+id/dir_up"
+				    android:padding="10dp"
+				    android:textColor="#000000"/>
+
+			    <ImageButton
+				    style="@style/img_btn"
+					android:src="@drawable/ic_3dot_menu"/>
+
+            </LinearLayout>
+
+			<ListView
+			    android:layout_width="match_parent"
+			    android:layout_height="0dp"
+				android:layout_weight="1"
+				android:id="@+id/file_list_view"/>
+
+
+		</LinearLayout>
+
+		<View
+			android:layout_height="match_parent"
+			android:layout_width="0dp"
+			android:onClick="hideLeft"
+			android:layout_weight="1"
+			android:id="@+id/left_closer"/>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_height="match_parent"
+		android:layout_width="match_parent"
+		android:orientation="horizontal"
+		android:layout_alignParentRight="true"
+		android:visibility="visible"
+		android:id="@+id/project_drawer">
+
+		<View
+			android:id="@+id/project_drawer_closer"
+			android:layout_height="match_parent"
+			android:layout_width="0dp"
+			android:layout_weight="1"/>
+
+
+			<!--main project_drawer layout-->
+			<LinearLayout
+				android:layout_height="match_parent"
+				android:layout_width="230dp"
+				android:orientation="vertical">
+
+
+
+				<!--settings exit layout-->
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="40dp"
+					android:background="#00BB00"
+					android:orientation="horizontal">
+
+
+					<ImageButton
+						style="@style/img_btn"
+						android:src="@drawable/ic_readonly"
+						android:onClick="toggleReadOnly"/>
+
+					<Space style="@style/h_pacer"/>
+
+					<ImageButton
+						style="@style/img_btn"
+						android:src="@drawable/ic_new_doc"
+						android:onClick="toggleUntitledTab"/>
+
+					<Space style="@style/h_pacer"/>
+
+					<ImageButton
+						style="@style/img_btn"
+						android:src="@drawable/ic_settings"
+						android:onClick="gotoSettings"/>
+
+					<Space style="@style/h_pacer"/>
+
+					<ImageButton
+						style="@style/img_btn"
+						android:layout_marginBottom="10dp"
+						android:onClick="exit"
+						android:src="@drawable/ic_exit" />
+
+				</LinearLayout>
+
+
+
+				<!--Find undo layout-->
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="40dp"
+					android:background="#00cB00"
+					android:orientation="horizontal">
+
+				<ImageButton
+					style="@style/img_btn"
+					android:src="@drawable/ic_search"/>
+
+					<Space style="@style/h_pacer"/>
+
+					<ImageButton
+						style="@style/img_btn"
+						android:src="@drawable/ic_search_pro"/>
+
+					<Space style="@style/h_pacer"/>
+
+					<ImageButton
+						style="@style/img_btn"
+						android:src="@drawable/ic_undo"
+						android:onClick="undo"/>
+
+					<Space style="@style/h_pacer"/>
+
+					<ImageButton
+						style="@style/img_btn"
+						android:src="@drawable/ic_redo"
+						android:onClick="redo"/>
+
+				</LinearLayout>
+
+
+
+
+
+				<!--Editor tabs-->
+				<ScrollView
+					android:layout_width="match_parent"
+					android:layout_height="0dp"
+                    android:background="#00FB00"
+					android:layout_weight="1">
+
+					<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:orientation="vertical">
+
+						<LinearLayout
+							android:id="@+id/peoject_group_container"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:orientation="vertical">
+							<!--insert new tab here-->
+
+
+						</LinearLayout>
+
+					<LinearLayout
+						android:id="@+id/untitled_container"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:orientation="vertical"
+						android:visibility="gone">
+
+						<LinearLayout
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_marginTop="8dp"
+							android:gravity="center"
+							android:orientation="horizontal">
+
+							<TextView
+								android:layout_width="0dip"
+								android:layout_height="40dp"
+								android:layout_weight="1"
+								android:paddingLeft="4dp"
+								android:paddingTop="4dp"
+								android:layout_marginLeft="2dp"
+								android:background="@color/grapeFruit"
+								android:textColor="#fff"
+								android:text="Untitled"/>
+
+						</LinearLayout>
+
+						<LinearLayout
+							android:id="@+id/untitled_tab_bar"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:orientation="vertical">
+
+							<TextView
+								android:layout_width="match_parent"
+								android:layout_height="40dp"
+								android:layout_gravity="center_vertical"
+								android:layout_margin="2dp"
+								android:background="#FF00EB00"
+								android:paddingLeft="4dp"
+								android:paddingTop="4dp"
+								android:text="TemporaryTab"
+								android:onClick="showUntitledTab"/>
+						</LinearLayout>
+
+					</LinearLayout>
+
+
+					</LinearLayout>
+
+				</ScrollView>
+
+
+			</LinearLayout>
+
+	</LinearLayout>
+
+
+
+
+
+
+
+
+	<RelativeLayout
+		android:layout_height="match_parent"
+		android:layout_width="match_parent"
+		android:background="#88888888"
+		android:visibility="gone"
+		android:id="@+id/dialogue_ui">
+
+		<LinearLayout
+			android:paddingTop="10dp"
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:orientation="vertical"
+			android:layout_centerInParent="true"
+			android:background="#FFFFFF">
+
+			<TextView
+				android:layout_height="wrap_content"
+				android:layout_width="match_parent"
+				android:layout_weight="0"
+				android:layout_gravity="center"
+				android:paddingLeft="20dp"
+				android:textSize="24dp"
+				android:text="Are you sure?"
+				android:id="@+id/warning_tv" />
+
+			<EditText
+				android:layout_height="50dp"
+				android:layout_width="match_parent"
+				android:layout_weight="0"
+				android:layout_gravity="center"
+				android:hint="name"
+				android:paddingLeft="20dp"
+				android:textSize="24dp"
+				android:id="@+id/text_input"
+				android:singleLine="true"
+				
+				/>
+
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:orientation="horizontal"
+				android:layout_gravity="right">
+
+				<TextView
+					android:textSize="26dp"
+					android:layout_margin="10dp"
+					android:textColor="#29B6F6"
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:text="Cancel"
+					android:id="@+id/cancle"
+					android:onClick="cancelDialogue"/>
+
+				<TextView
+					android:textSize="26dp"
+					android:layout_margin="10dp"
+					android:textColor="#29B6F6"
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:text="Okey"
+					android:onClick="dialogueOkey"/>
+
+			</LinearLayout>
+
+		</LinearLayout>
+
+	</RelativeLayout>
+
+	</RelativeLayout>
+
+	</LinearLayout>
+
+	<!--Popup window-->
+	<RelativeLayout
+		android:id="@+id/popup_window"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:visibility="gone"
+		android:onClick="hidePopupWindow">
+
+		<LinearLayout
+			android:id="@+id/project_options"
+			style="@style/popup_option_container"
+			android:layout_width="110dp"
+			android:layout_height="124dp">
+
+			<TextView
+				style="@style/popup_option_txt_btn"
+				android:text="Choose New"
+				android:onClick="chooseNewProject"/>
+
+			<TextView
+				style="@style/popup_option_txt_btn"
+				android:text="Open This"
+				android:onClick="openCurrentDirAsProject"/>
+
+			<TextView
+				style="@style/popup_option_txt_btn"
+				android:text="Close Project"
+				android:onClick="closeProject"/>
+
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:id="@+id/save_options"
+			style="@style/popup_option_container"
+			android:layout_height="124dp">
+
+			<TextView
+				style="@style/popup_option_txt_btn"
+				android:text="Save"
+				android:onClick="save"/>
+
+			<TextView
+				style="@style/popup_option_txt_btn"
+				android:text="Save As"
+				android:onClick="saveAs"/>
+
+			<TextView
+				style="@style/popup_option_txt_btn"
+				android:text="Save All"
+				android:onClick="saveAll"/>
+
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:id="@+id/build_options"
+			style="@style/popup_option_container"
+			android:layout_height="124dp">
+
+			<TextView
+				style="@style/popup_option_txt_btn"
+				android:text="Run"
+				android:onClick="runProject"/>
+<!--
+			<TextView
+				style="@style/popup_option_txt_btn"
+				android:text="Open"
+				android:onClick="openBottomMenu"/>-->
+
+			<TextView
+				style="@style/popup_option_txt_btn"
+				android:text="SetEntry"
+				android:onClick="setAsEntryPoint"/>
+
+			<TextView
+				style="@style/popup_option_txt_btn"
+				android:text="WebApps"
+				android:onClick="runInWebApps"/>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:id="@+id/tab_options"
+			style="@style/popup_option_container">
+
+			<TextView
+				style="@style/popup_option_txt_btn"
+				android:text="Close"
+				android:onClick="closeEditorTab"/>
+
+			<TextView
+				style="@style/popup_option_txt_btn"
+				android:text="Close All"/>
+
+		</LinearLayout>
+
+
+	</RelativeLayout>
+
+</RelativeLayout>

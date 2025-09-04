@@ -1,0 +1,90 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:textSize="30dp"
+            android:gravity="center"
+            android:text="Font Size :"/>
+
+        <EditText
+            android:id="@+id/font_size_et"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="20"
+            android:inputType="number"
+            android:textSize="30dp"
+            android:gravity="center" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:textSize="30dp"
+            android:gravity="center"
+            android:text="Swiper Left :"/>
+
+        <Switch
+            android:id="@+id/left_swiper_switch"
+            android:layout_width="wrap_content"
+            android:checked="true"
+            android:layout_height="50dp"/>
+    </LinearLayout>
+	
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:textSize="30dp"
+            android:gravity="center"
+            android:text="Swiper Right :"/>
+
+        <Switch
+            android:id="@+id/right_swiper_switch"
+            android:layout_width="wrap_content"
+            android:checked="true"
+            android:layout_height="50dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:textSize="30dp"
+            android:gravity="center"
+            android:text="Top Bar :"/>
+
+        <Switch
+            android:id="@+id/topbar_switch"
+            android:layout_width="wrap_content"
+            android:checked="true"
+            android:layout_height="50dp"/>
+    </LinearLayout>
+
+</LinearLayout>

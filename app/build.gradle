@@ -1,0 +1,54 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+
+android {
+    namespace 'app.ascode'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "app.ascode"
+        minSdk 33
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+    }
+
+    
+    compileOptions {
+        //coreLibraryDesugaringEnabled true
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+    /*buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.5.1'
+    }*/
+    
+}
+
+dependencies {
+    implementation 'androidx.collection:collection-ktx:1.4.5'
+
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

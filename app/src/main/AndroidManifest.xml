@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="app.ascode">
+
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
+    
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE"/>
+
+	<uses-permission android:name="com.termux.permission.RUN_COMMAND"/>
+    <queries>
+        <package android:name="com.termux"/>
+    </queries>
+
+
+
+    <application
+        android:icon="@mipmap/ic_as_code"
+        android:label="Android Studio"
+        android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
+        android:theme="@style/AppTheme">
+
+        <activity android:name=".WebViewActivity"/>
+
+        
+        <!--This Activity requires Termux and Gradle-->
+        <activity android:name=".AndroidIDEActivity"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden|navigation"
+            android:exported="true"
+            android:icon="@mipmap/ic_as_code"
+            android:launchMode="singleTask"
+            android:taskAffinity="as.ide"
+            android:label="AS-IDE">
+
+            
+            <!--<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
+            
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="content" />
+                <data android:scheme="file"/>
+                <data android:host="*"/>
+                <data android:mimeType="*/*"/>
+                <data android:pathPattern=".*\\.builder"/>
+
+                <!---->
+
+            </intent-filter>
+
+        </activity>
+
+        <activity android:name=".ASCodeActivity"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden|navigation"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:taskAffinity="as.code"
+            android:label="AS-Code">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                 <data android:scheme="content" />
+                <data android:scheme="file"/>
+                <data android:host="*"/>
+                <data android:mimeType="*/*"/>
+
+                <!-- text -->
+                <data android:pathPattern=".*\\.txt"/>
+                <!-- webpage -->
+                <data android:pathPattern=".*\\.html"/>
+                <data android:pathPattern=".*\\.css"/>
+                <data android:pathPattern=".*\\.js"/>
+                <data android:pathPattern=".*\\.json"/>
+                <data android:pathPattern=".*\\.mht"/>
+                <!-- android -->
+                <data android:pathPattern=".*\\.gradle"/>
+                <data android:pathPattern=".*\\.xml"/>
+                <data android:pathPattern="/.*\..*\.xml" />
+                <data android:pathPattern=".*\\.java"/>
+                <data android:pathPattern=".*\\.kt"/>
+
+
+ <!-- -->
+            </intent-filter>
+
+        </activity>
+
+        <activity android:name=".SettingsActivity"/>
+
+    </application>
+
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+</manifest>

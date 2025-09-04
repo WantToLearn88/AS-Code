@@ -1,0 +1,38 @@
+<resources>
+
+    <string name="sora_editor_last">Last</string>
+    <string name="sora_editor_next">Next</string>
+    <string name="sora_editor_replace">Replace</string>
+    <string name="sora_editor_replaceAll">Replace All</string>
+    <string name="sora_editor_replacement">Replacement</string>
+    <string name="sora_editor_text_to_search">Text to search</string>
+    <string name="sora_editor_editor_search_replacing">Replacing texts…</string>
+    <string name="sora_editor_editor_search_busy">Editor is still preparing…</string>
+    <string name="sora_editor_editor_formatting">Formatting your code…</string>
+    <string name="sora_editor_more">More</string>
+    <string name="sora_editor_diagnostics_more_actions">More Actions...</string>
+    <string name="sora_editor_clip_text_length_too_large">Text is too large to copy</string>
+    <string name="sora_editor_long_select">Long Select</string>
+
+ 
+
+    <string name="app_name">AS-Code</string>
+
+   <string name="title_activity_settings">SettingsActivity</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+
+</resources>
