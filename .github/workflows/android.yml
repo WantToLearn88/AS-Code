@@ -1,0 +1,39 @@
+name: Build APK
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ سحب كود المشروع
+      - name: Checkout project
+        uses: actions/checkout@v4
+
+      # 2️⃣ تثبيت Java
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      # 3️⃣ إعطاء صلاحية التنفيذ لملف gradlew
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      # 4️⃣ بناء APK (Debug)
+      - name: Build Debug APK
+        run: ./gradlew assembleDebug
+
+      # 5️⃣ حفظ ملف APK للتحميل
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-debug-apk
+          path: app/build/outputs/apk/debug/app-debug.apk
+
+  
